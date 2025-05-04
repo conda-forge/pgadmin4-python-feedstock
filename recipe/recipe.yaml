@@ -17,7 +17,7 @@ source:
       - patches/remove-pywinpty-requirements.txt.patch      # noarch package, but needed to pass tests in staged (can be removed once a feedstock)
 
 build:
-  number: 0
+  number: 1
   noarch: python
   python:
     entry_points:
