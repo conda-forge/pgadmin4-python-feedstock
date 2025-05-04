@@ -31,20 +31,20 @@ def setup_timeout(seconds=60):
 
 
 def wait_for_server(url="http://127.0.0.1:5050/login", max_attempts=10, 
-                    wait_seconds=2, timeout=5):
+                    wait_seconds=5, timeout=5):
     """Wait for server to start by repeatedly checking the URL."""
     print(f"Waiting for server to start at {url}...")
-    
+
     for attempt in range(max_attempts):
         try:
             time.sleep(wait_seconds)
             response = requests.get(url, timeout=timeout)
             # Consider both 200 and 401 as successful responses for the login page
-            if response.status_code in [200, 401]:
+            if response.status_code in {200, 401}:
                 print(f"Server is up! Status code: {response.status_code}")
                 return True
         except requests.exceptions.RequestException:
             print(f"Attempt {attempt+1}/{max_attempts} - Server not ready yet")
-    
+
     print("Server failed to start properly")
     return False
