@@ -14,7 +14,6 @@ source:
     patches:
       - patches/psycopg-requirements.txt.patch
       - patches/speaklater-requirements.txt.patch     # Should be removed in 9.4
-      - patches/remove-pywinpty-requirements.txt.patch      # noarch package, but needed to pass tests in staged (can be removed once a feedstock)
 
 build:
   number: 1
