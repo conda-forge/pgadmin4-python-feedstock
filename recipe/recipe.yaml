@@ -19,6 +19,10 @@ source:
 build:
   number: 0
   noarch: python
+  python:
+    entry_points:
+      - pgadmin4 = pgadmin4.pgAdmin4:main
+      - pgadmin4-cli = pgadmin4.setup:main
 
 requirements:
   host:
@@ -107,6 +111,9 @@ tests:
         - ${{ "Library/" if not unix else "" }}share/pgadmin4/docs/html/release_notes_${{ version | replace(".", "_") }}.html
       site_packages:
         - pgadmin4.pgadmin
+  - script: cd testing && python run_entry_point_pgadmin4.py
+    requirements: { run: ["python ${{ python_min }}.*"] }
+    files: { recipe: [testing/] }
   - script: cd testing && python run_simple_pgadmin4.py
     requirements: { run: ["python ${{ python_min }}.*"] }
     files: { recipe: [testing/] }
