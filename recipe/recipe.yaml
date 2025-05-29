@@ -11,9 +11,6 @@ package:
 source:
   - url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${{ version }}/source/pgadmin4-${{ version }}.tar.gz
     sha256: 8aa585aa1985afae141b6ee97b3bd9ce5debccb4f64cb2835ee3d65c2b8be8be
-    patches:
-      - patches/psycopg-requirements.txt.patch
-      - patches/speaklater-requirements.txt.patch     # Should be removed in 9.4
 
 build:
   number: 0
@@ -54,14 +51,14 @@ requirements:
     - Werkzeug 3.1.*
     - yarn ==${{ yarn_version }}
   run:
-    - authlib 1.4.*
-    - azure-identity ==1.19.0
+    - authlib 1.5.*
+    - azure-identity ==1.23.0
     - azure-mgmt-rdbms ==10.1.0
-    - azure-mgmt-resource ==23.2.0
+    - azure-mgmt-resource ==23.3.0
     - azure-mgmt-subscription ==3.1.1
-    - bcrypt 4.2.*
-    - boto3 1.36.*
-    - cryptography 44.0.*
+    - bcrypt 4.3.*
+    - boto3 1.38.*
+    - cryptography 45.0.*
     - Flask 3.1.*
     - Flask-Babel 4.0.*
     - Flask-Compress 1.*
@@ -74,22 +71,21 @@ requirements:
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
     - google-api-python-client 2.*
-    - google-auth-oauthlib ==1.2.1
+    - google-auth-oauthlib ==1.2.2
     - jsonformatter =0.3.4
     - keyring 25.*
     - ldap3 2.*
     - libgravatar 1.0.*
     - passlib 1.*
-    - psutil 6.1.*
-    - psycopg >=3.0.0,<3.3.0
-    - psycopg-c >=3.0.0,<3.3.0
+    - psutil 7.0.*
+    - psycopg >=3.2.9,<3.3.0
+    - psycopg-c >=3.2.9,<3.3.0
     - pytz 2025.*
     - pyotp 2.*
     - python >=${{ python_min }}
     - python-gssapi 1.9.*
     - qrcode 8.*
     - setuptools 75.*
-    - speaklater
     - SQLAlchemy 2.*
     - sqlparse 0.*
     - sshtunnel 0.*
