@@ -78,8 +78,8 @@ requirements:
     - libgravatar 1.0.*
     - passlib 1.*
     - psutil 7.0.*
-    - psycopg >=3.2.9,<3.3.0
-    - psycopg-c >=3.2.9,<3.3.0
+    - psycopg >=3.0.0,<3.3.0
+    - psycopg-c >=3.0.0,<3.3.0
     - pytz 2025.*
     - pyotp 2.*
     - python >=${{ python_min }}
