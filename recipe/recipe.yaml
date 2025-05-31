@@ -106,25 +106,39 @@ tests:
         - ${{ "Library/" if not unix else "" }}share/pgadmin4/docs/html/release_notes_${{ version | replace(".", "_") }}.html
       site_packages:
         - pgadmin4.pgadmin
-  - script: cd testing && python run_entry_point_pgadmin4.py
+  - script: |
+      cd testing
+      python run_entry_point_pgadmin4.py
     requirements: {run: ["python ${{ python_min }}.*"]}
     files: {recipe: [testing/]}
-  - script: cd testing && python run_simple_pgadmin4.py
+  - script: |
+      cd testing
+      python run_simple_pgadmin4.py
     requirements: {run: ["python ${{ python_min }}.*"]}
     files: {recipe: [testing/]}
-  - script: cd testing && python run_simple_setup.py
+  - script: |
+      cd testing
+      python run_simple_setup.py
     requirements: {run: ["python ${{ python_min }}.*"]}
     files: {recipe: [testing/]}
-  - script: cd testing && python run_complex_tests.py
+  - script: |
+      cd testing
+      python run_complex_tests.py
     requirements: {run: [postgresql 17.*, "python ${{ python_min }}.*"]}
     files: {source: [tests.tar, web/regression/], recipe: [testing/]}
-  - script: cd testing && python run_complex_tests.py
+  - script: |
+      cd testing
+      python run_complex_tests.py
     requirements: {run: [postgresql 16.*, "python ${{ python_min }}.*"]}
     files: {source: [tests.tar, web/regression/], recipe: [testing/]}
-  - script: cd testing && python run_complex_tests.py
+  - script: |
+      cd testing
+      python run_complex_tests.py
     requirements: {run: [postgresql 15.*, "python ${{ python_min }}.*"]}
     files: {source: [tests.tar, web/regression/], recipe: [testing/]}
-  - script: cd testing && python run_complex_tests.py
+  - script: |
+      cd testing
+      python run_complex_tests.py
     requirements: {run: [postgresql 14.*, "python ${{ python_min }}.*"]}
     files: {source: [tests.tar, web/regression/], recipe: [testing/]}
 
