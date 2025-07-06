@@ -20,7 +20,7 @@ _build_py_project
 echo "HELP_PATH = '${PREFIX}/share/pgadmin4/docs/html/'" > "${PYPROJECTROOT}"/config_distro.py
 echo "MINIFY_HTML = False" >> "${PYPROJECTROOT}"/config_distro.py
 
-cp LICENSE DEPENDENCIES README.md "${BUILDROOT}"
+cp LICENSE README.md "${BUILDROOT}"
 
 # Build/Install python package
 pushd "${BUILDROOT}" || exit
