@@ -52,7 +52,7 @@ _build_py_project() {
     git add . > /dev/null 2>&1
     git commit -m "Initial commit" > /dev/null 2>&1
 
-    ${PG_YARN} install
+    ${PG_YARN} install --no-immutable
     ${PG_YARN} run bundle > /dev/null 2>&1
 
     if [[ "${OSTYPE}" == "msys" ]] || [[ "${OSTYPE}" == "win32" ]] || [[ "${OSTYPE}" == "cygwin" ]]; then
