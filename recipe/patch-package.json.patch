@@ -1,0 +1,26 @@
+--- a/web/package.json
++++ b/web/package.json
+@@ -20,3 +20,4 @@
+     "@emotion/styled": "^11.11.0",
+-    "@emotion/utils": "^1.0.0",
++    "@emotion/utils": "^11.0.0",
++    "@mui/system": "^5.0.0",
+     "@svgr/webpack": "^8.1.0",
+@@ -28,2 +29,3 @@
+     "autoprefixer": "^10.4.21",
++    "aspen-core": "^1.0.0",
+     "axios-mock-adapter": "^2.1.0",
+@@ -36,2 +38,4 @@
+     "css-minimizer-webpack-plugin": "^7.0.0",
++    "csstype": "^3.0.0"
++    "eve": "^0.5.0",
+     "eslint": "^9.30.0",
+@@ -149,2 +153,3 @@
+     "sql-formatter": "^15.6.2",
++    "typescript": "^5.0.0"
+     "uplot": "^1.6.32",
+@@ -149,2 +153,3 @@
+     "rc-resize-observer": "1.4.0"
++    "react": "18.3.1",
++    "react-dom": "18.3.1"
+   },
