@@ -11,4 +11,4 @@ krb5:
 nodejs:
 - '22'
 python_min:
-- '3.9'
+- '3.10'
