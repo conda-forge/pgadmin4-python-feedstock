@@ -78,6 +78,7 @@ requirements:
     - keyring 25.*
     - ldap3 2.*
     - libgravatar 1.0.*
+    - paramiko ==3.5.1
     - passlib 1.*
     - psutil 7.0.*
     - psycopg >=3.0.0,<3.3.0
