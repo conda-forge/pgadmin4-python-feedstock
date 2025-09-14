@@ -1,6 +1,6 @@
 context:
   name: pgadmin4-python
-  version: "9.6"
+  version: "9.7"
   python_min: "3.9"
   yarn_version: "3.8.7"
 
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${{ version }}/source/pgadmin4-${{ version }}.tar.gz
-    sha256: 14cc35568bc9c9b797bd064507157bee7e57b2e3771e3b72cacce8bbb6664877
+    sha256: 02d462d1d2ba9167ed718f34d2cd111689792f891edf7113b177ed640adba589
     patches:
       - patch-package.json.patch
 
@@ -54,12 +54,12 @@ requirements:
     - yarn ==${{ yarn_version }}
   run:
     - authlib 1.6.*
-    - azure-identity ==1.23.0
+    - azure-identity ==1.24.0
     - azure-mgmt-rdbms ==10.1.0
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
     - bcrypt 4.3.*
-    - boto3 1.39.*
+    - boto3 1.40.*
     - cryptography 45.0.*
     - Flask 3.1.*
     - Flask-Babel 4.0.*
