@@ -13,6 +13,7 @@ source:
     sha256: 108e16272f82a87eb6483f401f54e46326da8c48e014ab2dd742640dc6f995f2
     patches:
       - patch-package.json.patch
+      - conda-compliant-requirements.txt.patch
 
 build:
   number: 0
@@ -31,7 +32,7 @@ requirements:
     - Flask-Mail 0.*
     - Flask-Migrate 4.*
     - Flask-Paranoid 0.*
-    - Flask-Security-Too 5.4.*
+    - Flask-Security-Too 5.5.*
     - Flask-SocketIO 5.5.*
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
@@ -68,7 +69,7 @@ requirements:
     - Flask-Mail 0.*
     - Flask-Migrate 4.*
     - Flask-Paranoid 0.*
-    - Flask-Security-Too 5.6.*
+    - Flask-Security-Too 5.5.*
     - Flask-SocketIO 5.5.*
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
