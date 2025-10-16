@@ -1,7 +1,7 @@
 context:
   name: pgadmin4-python
   version: "9.9"
-  python_min: "3.9"
+  python_min: "3.10"
   yarn_version: "3.8.7"
 
 package:
@@ -54,7 +54,7 @@ requirements:
     - yarn ==${{ yarn_version }}
   run:
     - authlib 1.6.*
-    - azure-identity ==1.25.1
+    - azure-identity ==1.25.0
     - azure-mgmt-rdbms ==10.1.0
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
