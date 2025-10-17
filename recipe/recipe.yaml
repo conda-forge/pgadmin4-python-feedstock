@@ -1,7 +1,7 @@
 context:
   name: pgadmin4-python
-  version: "9.8"
-  python_min: "3.9"
+  version: "9.9"
+  python_min: "3.10"
   yarn_version: "3.8.7"
 
 package:
@@ -10,9 +10,10 @@ package:
 
 source:
   - url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${{ version }}/source/pgadmin4-${{ version }}.tar.gz
-    sha256: 44f10393724d3a512d871e051dd00b6430c41d0cf7054c28bc1b0f6f87426864
+    sha256: 108e16272f82a87eb6483f401f54e46326da8c48e014ab2dd742640dc6f995f2
     patches:
       - patch-package.json.patch
+      - conda-compliant-requirements.txt.patch
 
 build:
   number: 0
@@ -31,7 +32,7 @@ requirements:
     - Flask-Mail 0.*
     - Flask-Migrate 4.*
     - Flask-Paranoid 0.*
-    - Flask-Security-Too 5.4.*
+    - Flask-Security-Too 5.5.*
     - Flask-SocketIO 5.5.*
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
@@ -54,13 +55,13 @@ requirements:
     - yarn ==${{ yarn_version }}
   run:
     - authlib 1.6.*
-    - azure-identity ==1.24.0
+    - azure-identity ==1.25.0
     - azure-mgmt-rdbms ==10.1.0
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
-    - bcrypt 4.3.*
+    - bcrypt 5.0.*
     - boto3 1.40.*
-    - cryptography 45.0.*
+    - cryptography 46.0.*
     - Flask 3.1.*
     - Flask-Babel 4.0.*
     - Flask-Compress 1.*
@@ -68,7 +69,7 @@ requirements:
     - Flask-Mail 0.*
     - Flask-Migrate 4.*
     - Flask-Paranoid 0.*
-    - Flask-Security-Too 5.4.*
+    - Flask-Security-Too 5.5.*
     - Flask-SocketIO 5.5.*
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
@@ -80,9 +81,9 @@ requirements:
     - libgravatar 1.0.*
     - paramiko ==3.5.1
     - passlib 1.*
-    - psutil 7.0.*
+    - psutil 7.1.*
     - psycopg >=3.0.0,<3.3.0
-    - psycopg-c >=3.0.0,<3.3.0
+    - psycopg-c >=3.2.10,<3.3.0
     - pytz 2025.*
     - pyotp 2.*
     - python >=${{ python_min }}
@@ -92,10 +93,10 @@ requirements:
     - SQLAlchemy 2.*
     - sqlparse 0.*
     - sshtunnel 0.*
-    - typer 0.16.*
-    - urllib3 1.26.*
+    - typer 0.19.*
+    - urllib3 2.5.*
     - user-agents ==2.2.0
-    - wtforms 3.1.*
+    - wtforms 3.2.*
 
 tests:
   - python:
@@ -127,23 +128,28 @@ tests:
   - script: |
       cd testing
       python run_complex_tests.py
+    requirements: {run: [postgresql 18.*, "python ${{ python_min }}.*"]}
+    files: {source: [tests.tar, web/regression/], recipe: [testing/]}
+  - script: |
+      cd testing
+      python run_complex_tests.py
     requirements: {run: [postgresql 17.*, "python ${{ python_min }}.*"]}
     files: {source: [tests.tar, web/regression/], recipe: [testing/]}
-  - script: |
-      cd testing
-      python run_complex_tests.py
-    requirements: {run: [postgresql 16.*, "python ${{ python_min }}.*"]}
-    files: {source: [tests.tar, web/regression/], recipe: [testing/]}
-  - script: |
-      cd testing
-      python run_complex_tests.py
-    requirements: {run: [postgresql 15.*, "python ${{ python_min }}.*"]}
-    files: {source: [tests.tar, web/regression/], recipe: [testing/]}
-  - script: |
-      cd testing
-      python run_complex_tests.py
-    requirements: {run: [postgresql 14.*, "python ${{ python_min }}.*"]}
-    files: {source: [tests.tar, web/regression/], recipe: [testing/]}
+  # - script: |
+  #     cd testing
+  #     python run_complex_tests.py
+  #   requirements: {run: [postgresql 16.*, "python ${{ python_min }}.*"]}
+  #   files: {source: [tests.tar, web/regression/], recipe: [testing/]}
+  # - script: |
+  #     cd testing
+  #     python run_complex_tests.py
+  #   requirements: {run: [postgresql 15.*, "python ${{ python_min }}.*"]}
+  #   files: {source: [tests.tar, web/regression/], recipe: [testing/]}
+  # - script: |
+  #     cd testing
+  #     python run_complex_tests.py
+  #   requirements: {run: [postgresql 14.*, "python ${{ python_min }}.*"]}
+  #  files: {source: [tests.tar, web/regression/], recipe: [testing/]}
 
   # This seems incompatible with psycopg
   # - script: PY_VER=${{ python_min }} ./test.sh

@@ -109,7 +109,7 @@ classifiers = [
     for req in requires:
         if "3.8" not in req and "setuptools" not in req and "; python_version >= '3.10'" not in req:
             req = req.replace("; python_version >= '3.9'", "")
-            req = req.replace("; python_version <= '3.9'", "")
+            req = req.replace("; python_version < '3.9'", "")
             toml += f'    "{req}",\n'
 
     toml += "]\n\n"
