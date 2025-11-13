@@ -14,7 +14,7 @@ source:
     patches:
       - patch-package.json.patch
       - conda-compliant-requirements.txt.patch
-      - patches/add-use-effect-event-polyfill.patch
+      - add-use-effect-event-polyfill.patch
 
 build:
   number: 0
