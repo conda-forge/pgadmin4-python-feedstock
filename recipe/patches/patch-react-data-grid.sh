@@ -1,16 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Patch react-data-grid to remove useEffectEvent usage and add polyfill
 
-set -e
+set -eux
 
 RDG_DIR="node_modules/react-data-grid"
 
 if [ -f "${RDG_DIR}/lib/index.js" ]; then
     echo "Patching react-data-grid lib/index.js to add useEffectEvent polyfill..."
 
-    # Add useEffectEvent polyfill function at the top of the file, after imports
-    # Find the line number after the last import statement
-    POLYFILL='
+    # Create a temporary file with the polyfill
+    cat > /tmp/polyfill.js << 'EOF'
+
 // Polyfill for useEffectEvent (React experimental API)
 function useEffectEvent(fn) {
   const ref = useRef(fn);
@@ -19,10 +19,22 @@ function useEffectEvent(fn) {
   });
   return useCallback((...args) => ref.current(...args), []);
 }
-'
+EOF
 
-    # Insert the polyfill after the imports (after line 3, which is the jsx-runtime import)
-    sed -i "4i\\$POLYFILL" "${RDG_DIR}/lib/index.js"
+    # Get the first 3 lines (imports)
+    head -n 3 "${RDG_DIR}/lib/index.js" > "${RDG_DIR}/lib/index.js.tmp"
+
+    # Append the polyfill
+    cat /tmp/polyfill.js >> "${RDG_DIR}/lib/index.js.tmp"
+
+    # Append the rest of the file (skip first 3 lines)
+    tail -n +4 "${RDG_DIR}/lib/index.js" >> "${RDG_DIR}/lib/index.js.tmp"
+
+    # Replace the original file
+    mv "${RDG_DIR}/lib/index.js.tmp" "${RDG_DIR}/lib/index.js"
+
+    # Clean up
+    rm -f /tmp/polyfill.js
 
     echo "react-data-grid lib/index.js patched successfully"
 else
