@@ -1,0 +1,31 @@
+--- /dev/null
++++ b/web/react-polyfill.js
+@@ -0,0 +1,17 @@
++// Polyfill for React's experimental useEffectEvent
++// which is used by react-data-grid but doesn't exist in React 18 or 19
++import * as React from 'react';
++
++// Polyfill useEffectEvent using useCallback with empty deps
++// This is the recommended workaround from React team
++function useEffectEvent(fn) {
++  const ref = React.useRef(fn);
++  React.useLayoutEffect(() => {
++    ref.current = fn;
++  });
++  return React.useCallback((...args) => ref.current(...args), []);
++}
++
++export * from 'react';
++export { useEffectEvent };
++
+--- a/web/webpack.config.js
++++ b/web/webpack.config.js
+@@ -334,7 +334,10 @@ module.exports = [{
+   resolve: {
+-    alias: webpackShimConfig.resolveAlias,
++    alias: {
++      ...webpackShimConfig.resolveAlias,
++      'react': path.resolve(__dirname, 'react-polyfill.js'),
++    },
+     modules: ['node_modules', '.'],
+     extensions: ['.js', '.jsx', '.ts', '.tsx'],
