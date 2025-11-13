@@ -43,6 +43,7 @@ requirements:
     - keyring 25.*
     - krb5
     - libgravatar
+    - make
     - nodejs
     - pip
     - python-build
