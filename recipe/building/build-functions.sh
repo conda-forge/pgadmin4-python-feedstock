@@ -55,7 +55,7 @@ _build_py_project() {
     ${PG_YARN} install --no-immutable
 
     # Patch react-data-grid to remove useEffectEvent
-    bash "${RECIPE_DIR}/patches/patch-react-data-grid.sh"
+    bash "${RECIPE_DIR}/patch-react-data-grid.sh"
 
     ${PG_YARN} run bundle
     # > /dev/null 2>&1
