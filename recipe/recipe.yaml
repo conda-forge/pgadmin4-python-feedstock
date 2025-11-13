@@ -24,6 +24,9 @@ build:
       - pgadmin4-cli = pgadmin4.setup:main
 
 requirements:
+  build:
+    - {{ compiler("cxx") }}
+    - make
   host:
     - Flask 3.1.*
     - Flask-Babel 4.0.*
@@ -43,7 +46,6 @@ requirements:
     - keyring 25.*
     - krb5
     - libgravatar
-    - make
     - nodejs
     - pip
     - python-build
