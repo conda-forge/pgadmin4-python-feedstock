@@ -53,7 +53,8 @@ _build_py_project() {
     git commit -m "Initial commit" > /dev/null 2>&1
 
     ${PG_YARN} install --no-immutable
-    ${PG_YARN} run bundle > /dev/null 2>&1
+    ${PG_YARN} run bundle
+    # > /dev/null 2>&1
 
     if [[ "${OSTYPE}" == "msys" ]] || [[ "${OSTYPE}" == "win32" ]] || [[ "${OSTYPE}" == "cygwin" ]]; then
       # Create a batch file for Windows commands

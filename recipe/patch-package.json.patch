@@ -16,16 +16,28 @@
 +    "csstype": "^3.0.0",
 +    "eve": "^0.5.0",
      "eslint": "^9.30.0",
+@@ -127,3 +132,3 @@
+     "rc-dock": "^4.0.0-alpha.2",
+-    "react": "^19.0.0",
++    "react": "18.3.1",
+     "react-arborist": "^3.2.0",
+@@ -134,3 +139,3 @@
+     "react-dnd-html5-backend": "^16.0.1",
+-    "react-dom": "^19.0.0",
++    "react-dom": "18.3.1",
+     "react-draggable": "^4.4.6",
 @@ -149,2 +154,3 @@
      "sql-formatter": "^15.6.2",
 +    "typescript": "^5.0.0",
      "uplot": "^1.6.32",
-@@ -159,3 +166,7 @@
+@@ -159,3 +165,8 @@
   "resolutions": {
 -    "rc-resize-observer": "1.4.0"
 +    "rc-resize-observer": "1.4.0",
 +    "@emotion/react": "^11.11.0",
 +    "typescript": "^5.0.0",
 +    "react": "18.3.1",
-+    "react-dom": "18.3.1"
++    "react-dom": "18.3.1",
++    "@types/react": "18.3.12",
++    "@types/react-dom": "18.3.5"
    },
