@@ -25,7 +25,7 @@
 -    alias: webpackShimConfig.resolveAlias,
 +    alias: {
 +      ...webpackShimConfig.resolveAlias,
-+      'react': path.resolve(__dirname, 'react-polyfill.js'),
++      'react$': path.resolve(__dirname, 'react-polyfill.js'),
 +    },
      modules: ['node_modules', '.'],
      extensions: ['.js', '.jsx', '.ts', '.tsx'],
