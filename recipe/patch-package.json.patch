@@ -41,3 +41,8 @@
 +    "@types/react": "18.3.12",
 +    "@types/react-dom": "18.3.5"
    },
+@@ -168,3 +175,3 @@
+     "bundle:analyze": "cross-env NODE_ENV=production ANALYZE=true yarn run bundle:dev",
+-    "bundle": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=3072 yarn run bundle:dev && yarn run git:hash",
++    "bundle": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=6144 yarn run bundle:dev && yarn run git:hash",
+     "git:hash": "exit 0",
