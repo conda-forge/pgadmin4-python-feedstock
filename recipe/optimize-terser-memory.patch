@@ -1,0 +1,18 @@
+--- a/web/webpack.config.js
++++ b/web/webpack.config.js
+@@ -354,8 +354,13 @@ module.exports = [{
+       new TerserPlugin({
+-        parallel: false,
+-        extractComments: true,
++        parallel: 2,
++        extractComments: false,
+         terserOptions: {
+-          compress: true,
++          compress: {
++            passes: 1,
++            drop_console: false,
++          },
++          mangle: true,
++          output: { comments: false },
+         },
+       }),
