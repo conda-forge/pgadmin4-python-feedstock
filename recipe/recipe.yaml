@@ -14,7 +14,6 @@ source:
     patches:
       - patch-package.json.patch
       - conda-compliant-requirements.txt.patch
-      - add-use-effect-event-polyfill.patch
       - optimize-terser-memory.patch
 
 build:
