@@ -59,7 +59,7 @@ requirements:
     - yarn ==${{ yarn_version }}
   run:
     - authlib 1.6.*
-    - azure-identity ==1.25.0
+    - azure-identity ==1.25.1
     - azure-mgmt-rdbms ==10.1.0
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
@@ -78,7 +78,7 @@ requirements:
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
     - google-api-python-client 2.*
-    - google-auth-oauthlib ==1.2.2
+    - google-auth-oauthlib ==1.2.3
     - jsonformatter =0.3.4
     - keyring 25.*
     - ldap3 2.*
@@ -97,7 +97,7 @@ requirements:
     - SQLAlchemy 2.*
     - sqlparse 0.*
     - sshtunnel 0.*
-    - typer 0.19.*
+    - typer 0.20.*
     - urllib3 2.5.*
     - user-agents ==2.2.0
     - wtforms 3.2.*
