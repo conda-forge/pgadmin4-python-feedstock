@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Patch react-data-grid to remove useEffectEvent usage and add polyfill
+# Patch react-data-grid to remove useEffectEvent from imports and add polyfill
 
 set -eux
 
@@ -7,6 +7,12 @@ RDG_DIR="node_modules/react-data-grid"
 
 if [ -f "${RDG_DIR}/lib/index.js" ]; then
     echo "Patching react-data-grid lib/index.js to add useEffectEvent polyfill..."
+
+    # First, remove useEffectEvent from the React import
+    # Original: import { createContext, memo, useCallback, useContext, useEffect, useEffectEvent, useImperativeHandle, useLayoutEffect, useMemo, useRef, useState } from "react";
+    # Target:   import { createContext, memo, useCallback, useContext, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useRef, useState } from "react";
+    sed -i 's/, useEffectEvent,/, /g' "${RDG_DIR}/lib/index.js"
+    sed -i 's/, useEffectEvent / /g' "${RDG_DIR}/lib/index.js"
 
     # Create a temporary file with the polyfill
     cat > /tmp/polyfill.js << 'EOF'
