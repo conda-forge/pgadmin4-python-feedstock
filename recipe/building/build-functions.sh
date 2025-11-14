@@ -53,6 +53,10 @@ _build_py_project() {
     git commit -m "Initial commit" > /dev/null 2>&1
 
     ${PG_YARN} install --no-immutable
+
+    # Patch react-data-grid to remove useEffectEvent
+    bash "${RECIPE_DIR}/patches/patch-react-data-grid.sh"
+
     ${PG_YARN} run bundle > /dev/null 2>&1
 
     if [[ "${OSTYPE}" == "msys" ]] || [[ "${OSTYPE}" == "win32" ]] || [[ "${OSTYPE}" == "cygwin" ]]; then

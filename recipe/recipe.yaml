@@ -1,6 +1,6 @@
 context:
   name: pgadmin4-python
-  version: "9.9"
+  version: "9.10"
   python_min: "3.10"
   yarn_version: "3.8.7"
 
@@ -10,10 +10,11 @@ package:
 
 source:
   - url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${{ version }}/source/pgadmin4-${{ version }}.tar.gz
-    sha256: 108e16272f82a87eb6483f401f54e46326da8c48e014ab2dd742640dc6f995f2
+    sha256: 479b7b34b25be53b28174d3b688cebf91869204bec75752e06f7de1634c41507
     patches:
-      - patch-package.json.patch
-      - conda-compliant-requirements.txt.patch
+      - patches/patch-package.json.patch
+      - patches/conda-compliant-requirements.txt.patch
+      - patches/optimize-terser-memory.patch
 
 build:
   number: 0
@@ -24,6 +25,9 @@ build:
       - pgadmin4-cli = pgadmin4.setup:main
 
 requirements:
+  build:
+    - ${{ compiler("cxx") }}
+    - make
   host:
     - Flask 3.1.*
     - Flask-Babel 4.0.*
@@ -55,7 +59,7 @@ requirements:
     - yarn ==${{ yarn_version }}
   run:
     - authlib 1.6.*
-    - azure-identity ==1.25.0
+    - azure-identity ==1.25.1
     - azure-mgmt-rdbms ==10.1.0
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
@@ -74,7 +78,7 @@ requirements:
     - Flask-SQLAlchemy 3.1.*
     - Flask-WTF 1.2.*
     - google-api-python-client 2.*
-    - google-auth-oauthlib ==1.2.2
+    - google-auth-oauthlib ==1.2.3
     - jsonformatter =0.3.4
     - keyring 25.*
     - ldap3 2.*
@@ -93,7 +97,7 @@ requirements:
     - SQLAlchemy 2.*
     - sqlparse 0.*
     - sshtunnel 0.*
-    - typer 0.19.*
+    - typer 0.20.*
     - urllib3 2.5.*
     - user-agents ==2.2.0
     - wtforms 3.2.*

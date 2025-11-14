@@ -1,0 +1,48 @@
+--- a/web/package.json
++++ b/web/package.json
+@@ -20,3 +20,5 @@
+     "@emotion/styled": "^11.11.0",
+-    "@emotion/utils": "^1.0.0",
++    "@emotion/utils": "^1.2.1",
++    "@emotion/react": "^11.11.0",
++    "@mui/system": "^5.0.0",
+     "@svgr/webpack": "^8.1.0",
+@@ -28,2 +30,3 @@
+     "autoprefixer": "^10.4.21",
++    "aspen-core": "^1.0.0",
+     "axios-mock-adapter": "^2.1.0",
+@@ -36,2 +39,4 @@
+     "css-minimizer-webpack-plugin": "^7.0.0",
++    "csstype": "^3.0.0",
++    "eve": "^0.5.0",
+     "eslint": "^9.30.0",
+@@ -127,3 +132,3 @@
+     "rc-dock": "^4.0.0-alpha.2",
+-    "react": "^19.0.0",
++    "react": "18.3.1",
+     "react-arborist": "^3.2.0",
+@@ -134,3 +139,3 @@
+     "react-dnd-html5-backend": "^16.0.1",
+-    "react-dom": "^19.0.0",
++    "react-dom": "18.3.1",
+     "react-draggable": "^4.4.6",
+@@ -149,2 +154,3 @@
+     "sql-formatter": "^15.6.2",
++    "typescript": "^5.0.0",
+     "uplot": "^1.6.32",
+@@ -159,3 +165,8 @@
+  "resolutions": {
+-    "rc-resize-observer": "1.4.0"
++    "rc-resize-observer": "1.4.0",
++    "@emotion/react": "^11.11.0",
++    "typescript": "^5.0.0",
++    "react": "18.3.1",
++    "react-dom": "18.3.1",
++    "@types/react": "18.3.12",
++    "@types/react-dom": "18.3.5"
+   },
+@@ -168,3 +175,3 @@
+     "bundle:analyze": "cross-env NODE_ENV=production ANALYZE=true yarn run bundle:dev",
+-    "bundle": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=3072 yarn run bundle:dev && yarn run git:hash",
++    "bundle": "cross-env NODE_ENV=production NODE_OPTIONS=--max-old-space-size=6144 yarn run bundle:dev && yarn run git:hash",
+     "git:hash": "exit 0",
