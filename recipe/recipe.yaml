@@ -58,13 +58,13 @@ requirements:
     - Werkzeug 3.1.*
     - yarn ==${{ yarn_version }}
   run:
-    - authlib 1.6.*
+    - authlib 1.6.5
     - azure-identity ==1.25.1
-    - azure-mgmt-rdbms ==10.1.0
+    - azure-mgmt-rdbms ==10.1.1
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
     - bcrypt 5.0.*
-    - boto3 1.40.*
+    - boto3 1.42.*
     - cryptography 46.0.*
     - Flask 3.1.*
     - Flask-Babel 4.0.*
@@ -98,7 +98,7 @@ requirements:
     - sqlparse 0.*
     - sshtunnel 0.*
     - typer 0.20.*
-    - urllib3 2.5.*
+    - urllib3 2.6.*
     - user-agents ==2.2.0
     - wtforms 3.2.*
 
