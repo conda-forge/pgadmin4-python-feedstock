@@ -1,6 +1,6 @@
 context:
   name: pgadmin4-python
-  version: "9.10"
+  version: "9.11"
   python_min: "3.10"
   yarn_version: "3.8.7"
 
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${{ version }}/source/pgadmin4-${{ version }}.tar.gz
-    sha256: 479b7b34b25be53b28174d3b688cebf91869204bec75752e06f7de1634c41507
+    sha256: 8f394156662843440b86a5c73995e14b366d8b0056f69c2aa0b00a3268570a54
     patches:
       - patches/patch-package.json.patch
       - patches/conda-compliant-requirements.txt.patch
@@ -58,13 +58,13 @@ requirements:
     - Werkzeug 3.1.*
     - yarn ==${{ yarn_version }}
   run:
-    - authlib 1.6.*
+    - authlib ==1.6.5
     - azure-identity ==1.25.1
-    - azure-mgmt-rdbms ==10.1.0
+    - azure-mgmt-rdbms ==10.1.1
     - azure-mgmt-resource ==24.0.0
     - azure-mgmt-subscription ==3.1.1
     - bcrypt 5.0.*
-    - boto3 1.40.*
+    - boto3 1.42.*
     - cryptography 46.0.*
     - Flask 3.1.*
     - Flask-Babel 4.0.*
@@ -98,7 +98,7 @@ requirements:
     - sqlparse 0.*
     - sshtunnel 0.*
     - typer 0.20.*
-    - urllib3 2.5.*
+    - urllib3 2.6.*
     - user-agents ==2.2.0
     - wtforms 3.2.*
 
