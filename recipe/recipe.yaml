@@ -52,7 +52,7 @@ requirements:
     - python-build
     - python-dateutil
     - python ${{ python_min }}.*
-    - setuptools
+    - setuptools <=81
     - sphinx
     - sphinxcontrib-youtube
     - Werkzeug 3.1.*
