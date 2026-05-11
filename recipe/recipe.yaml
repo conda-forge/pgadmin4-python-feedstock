@@ -48,6 +48,7 @@ requirements:
     - krb5
     - libgravatar
     - nodejs
+    - passlib 1.*
     - pip
     - python-build
     - python-dateutil
