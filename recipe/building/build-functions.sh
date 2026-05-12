@@ -52,7 +52,7 @@ _build_py_project() {
     git add . > /dev/null 2>&1
     git commit -m "Initial commit" > /dev/null 2>&1
 
-    ${PG_YARN} install --no-immutable
+    ${PG_YARN} install
 
     # Patch react-data-grid to remove useEffectEvent
     bash "${RECIPE_DIR}/patches/patch-react-data-grid.sh"
