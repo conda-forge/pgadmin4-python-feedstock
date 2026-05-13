@@ -268,7 +268,6 @@ def main():
             test_cmd = [
                 "python", os.path.join("web", "regression", "runtests.py"),
                 "--exclude", "feature_tests",
-                "--parallel",
                 # "--pkg", "browser",
             ]
             process = subprocess.Popen(
@@ -295,7 +294,7 @@ def main():
             last_output_time = None
 
             # Display spinner while process is running
-            idle_timeout_seconds = 120
+            idle_timeout_seconds = 30
 
             while True:
                 # Check if process has finished
@@ -325,6 +324,9 @@ def main():
                     if not line:  # Empty string means end of stream
                         break
                     all_stderr.append(line)
+                    # Live-print stderr lines as they arrive
+                    sys.stderr.write(line)
+                    sys.stderr.flush()
                     # Only store lines with test results
                     if any(keyword in line.lower() for keyword in ["tests passed", "tests failed", "tests skipped"]):
                         test_result_lines.append(f"{line.rstrip()}")

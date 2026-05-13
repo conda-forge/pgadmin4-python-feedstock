@@ -1,0 +1,12 @@
+--- a/web/pgadmin/utils/crypto.py
++++ b/web/pgadmin/utils/crypto.py
+@@ -17,5 +17,8 @@
+ from cryptography.hazmat.primitives.ciphers import Cipher
+ from cryptography.hazmat.primitives.ciphers.algorithms import AES
+-from cryptography.hazmat.decrepit.ciphers.modes import CFB8
++try:
++    from cryptography.hazmat.decrepit.ciphers.modes import CFB8
++except ImportError:
++    from cryptography.hazmat.primitives.ciphers.modes import CFB8
+
+ padding_string = b'}'
