@@ -37,8 +37,11 @@ try:
             # Use subprocess to start pgAdmin4
             pgadmin_process = subprocess.Popen(
                 ["pgadmin4"],
-                cwd=current_dir,  # Set working directory to find config_local.py
-                env=os.environ    # Pass current environment
+                cwd=current_dir,        # Set working directory to find config_local.py
+                env=os.environ,         # Pass current environment
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
             )
             pgadmin_process.wait()
         except Exception as e:
@@ -66,6 +69,11 @@ try:
     else:
         if pgadmin_process:
             pgadmin_process.terminate()  # Ensure the process is terminated on failure
+            pgadmin_process.wait()
+        captured = pgadmin_process.stdout.read() if pgadmin_process and pgadmin_process.stdout else ""
+        print("===== pgAdmin4 captured output (stdout+stderr) =====", flush=True)
+        print(captured, flush=True)
+        print("===== end pgAdmin4 output =====", flush=True)
         os._exit(1)
 
 except KeyboardInterrupt:
@@ -73,4 +81,14 @@ except KeyboardInterrupt:
     os._exit(0)
 except Exception as e:
     print(f"Error: {e}")
+    if pgadmin_process:
+        try:
+            pgadmin_process.terminate()
+            pgadmin_process.wait()
+        except Exception:
+            pass
+        captured = pgadmin_process.stdout.read() if pgadmin_process.stdout else ""
+        print("===== pgAdmin4 captured output (stdout+stderr) =====", flush=True)
+        print(captured, flush=True)
+        print("===== end pgAdmin4 output =====", flush=True)
     os._exit(1)

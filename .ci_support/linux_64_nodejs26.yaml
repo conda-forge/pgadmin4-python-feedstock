@@ -11,6 +11,6 @@ docker_image:
 krb5:
 - '1.22'
 nodejs:
-- '22'
+- '26'
 python_min:
 - '3.10'
