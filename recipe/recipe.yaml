@@ -1,6 +1,6 @@
 context:
   name: pgadmin4-python
-  version: "9.16"
+  version: "9.17"
   python_min: "3.10"
   yarn_version: "4.14"
 
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v${{ version }}/source/pgadmin4-${{ version }}.tar.gz
-    sha256: 83075a711972d85d48852a14894391e38bbe9169573f4b461525127b02712aa7
+    sha256: 1f8503afcb2b41d33fc2eb65b96c68cffa7e8d943239feaa3811b67d2fb1288e
     patches:
       - patches/optimize-terser-memory.patch
       - patches/cryptography-cfb8-import-fallback.patch
@@ -65,8 +65,8 @@ requirements:
     - azure-mgmt-subscription ==3.1.1
     - bcrypt 5.0.*
     - boto3 1.43.*
-    - certifi ==2026.5.20
-    - cryptography >=46
+    - certifi ==2026.6.17
+    - cryptography >=49
     - Flask 3.1.*
     - Flask-Babel 4.0.*
     - Flask-Compress 1.*
