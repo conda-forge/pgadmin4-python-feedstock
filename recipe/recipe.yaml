@@ -1,7 +1,6 @@
 context:
   name: pgadmin4-python
   version: "9.18"
-  python_min: "3.10"
   yarn_version: "4.14"
 
 package:
